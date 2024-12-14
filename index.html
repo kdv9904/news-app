@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="Short cut icon" href="News.png"type="image/x-icon">
+    <title>News api</title>
+</head>
+<body>
+    <nav>
+        <div class="navbar obj-width">
+            <a class="logo" href="index.html">News</a>
+            <div class="search-container">
+                <input type="text" placeholder="search here.." id="search-input">
+                <button id="search-button">Search</button>
+            </div>
+        </div>
+    </nav>
+    <main id="blog-container" class="obj-width">
+        <!-- <div class="blog-card">
+            <img src="http://placehold.co/600x400" alt="">
+            <h1>This is title</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, eos culpa. Incidunt, praesentium molestias soluta dolores cupiditate, voluptate, voluptas perferendis excepturi tempora molestiae dolore aperiam. Nesciunt ipsam adipisci consectetur debitis.</p>
+        </div>
+        <div class="blog-card">
+            <img src="http://placehold.co/600x400" alt="">
+            <h1>This is title</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, eos culpa. Incidunt, praesentium molestias soluta dolores cupiditate, voluptate, voluptas perferendis excepturi tempora molestiae dolore aperiam. Nesciunt ipsam adipisci consectetur debitis.</p>
+        </div>
+        <div class="blog-card">
+            <img src="http://placehold.co/600x400" alt="">
+            <h1>This is title</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, eos culpa. Incidunt, praesentium molestias soluta dolores cupiditate, voluptate, voluptas perferendis excepturi tempora molestiae dolore aperiam. Nesciunt ipsam adipisci consectetur debitis.</p>
+        </div>
+        <div class="blog-card">
+            <img src="http://placehold.co/600x400" alt="">
+            <h1>This is title</h1>
+            <p>Lorem ipsum dolor sit amet consectetur                    adipisicing elit. Officiis, eos culpa. Incidunt, praesentium molestias soluta dolores cupiditate, voluptate, voluptas perferendis excepturi tempora molestiae dolore aperiam. Nesciunt ipsam adipisci consectetur debitis.</p>
+        </div> -->
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+algorithm check_cycle_or_not(graph):
+visited = [false] * V  // initialize visited array with all false values
+recursion_stack = [false] * V  // initialize recursion stack array with all false values
+
+for each vertex v in graph:
+  if not visited[v]:
+    if dfs(v, visited, recursion_stack, -1):
+      return true  // cycle found
+
+return false  // no cycle found
+
+function dfs(vertex, visited, recursion_stack, parent):
+visited[vertex] = true
+recursion_stack[vertex] = true
+
+for each neighbor of vertex:
+  if not visited[neighbor]:
+    if dfs(neighbor, visited, recursion_stack, vertex):
+      return true
+  elif recursion_stack[neighbor] and neighbor != parent:
+    return true  // cycle found
+
+recursion_stack[vertex] = false
+return false
